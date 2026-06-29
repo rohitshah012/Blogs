@@ -2,12 +2,15 @@
 <html lang="en">
   <head>
     <%- include('./partials/head') %>
-    <title>Add New Blog</title>
+    <title>New Blog | <%= appName %></title>
   </head>
   <body>
     <%- include('./partials/nav') %>
 
-    <div class="container mt-3">
+    <main class="container py-4">
+      <section class="form-shell">
+        <p class="eyebrow">Create</p>
+        <h1>Write a new blog</h1>
       <form action="/blog" method="post" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="coverImage" class="form-label">Cover Image</label>
@@ -17,6 +20,7 @@
             id="coverImage"
             name="coverImage"
             aria-describedby="coverImage"
+              accept="image/avif,image/jpeg,image/png,image/webp"
           />
         </div>
         <div class="mb-3">
@@ -27,17 +31,19 @@
             id="title"
             name="title"
             aria-describedby="title"
+              required
           />
         </div>
         <div class="mb-3">
           <label for="body">Body</label>
-          <textarea name="body" class="form-control" id="body"></textarea>
+            <textarea name="body" class="form-control" id="body" rows="10" required></textarea>
         </div>
         <div class="mb-3">
-          <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary">Publish</button>
         </div>
       </form>
-    </div>
+      </section>
+    </main>
 
     <%- include('./partials/scripts') %>
   </body>

@@ -2,26 +2,50 @@
 <html lang="en">
   <head>
     <%- include('./partials/head') %>
-    <title>Homepage</title>
+    <title><%= appName %></title>
   </head>
   <body>
     <%- include('./partials/nav') %>
 
-    <div class="container mt-3">
-      <div class="row row-cols-4">
+    <main class="container py-4">
+      <section class="page-header">
+        <div>
+          <p class="eyebrow">Latest stories</p>
+          <h1>Fresh thinking from the community</h1>
+        </div>
+        <% if (locals.user) { %>
+        <a href="/blog/add-new" class="btn btn-primary">Write a blog</a>
+        <% } %>
+      </section>
+
+      <% if (blogs.length) { %>
+      <div class="blog-grid">
         <% blogs.forEach(blog => { %>
-        <div class="col">
-          <div class="card col" style="width: 18rem">
-            <img src="<%= blog.coverImageURL %>" class="card-img-top" />
+        <article class="card blog-card">
+          <img
+            src="<%= blog.coverImageURL || '/images/default.png' %>"
+            class="card-img-top blog-card-image"
+            alt="<%= blog.title %>"
+          />
             <div class="card-body">
               <h5 class="card-title"><%= blog.title %></h5>
-              <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+            <a href="/blog/<%= blog._id %>" class="btn btn-outline-primary">
+              Read story
+            </a>
             </div>
-          </div>
-        </div>
+        </article>
         <% }) %>
       </div>
-    </div>
+      <% } else { %>
+      <section class="empty-state">
+        <h2>No blogs yet</h2>
+        <p>Be the first to publish something worth reading.</p>
+        <% if (locals.user) { %>
+        <a href="/blog/add-new" class="btn btn-primary">Create first blog</a>
+        <% } %>
+      </section>
+      <% } %>
+    </main>
 
     <%- include('./partials/scripts') %>
   </body>

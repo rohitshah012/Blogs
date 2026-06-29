@@ -9,6 +9,7 @@ logs/
 # Environment variables
 .env
 .env.*
+!.env.example
 
 # Dependency directories
 node_modules/
@@ -52,7 +53,6 @@ coverage/
 .coverage
 
 # Package managers
-package-lock.json
 yarn-error.log
 pnpm-debug.log
 

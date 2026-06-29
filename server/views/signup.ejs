@@ -2,12 +2,15 @@
 <html lang="en">
   <head>
     <%- include('./partials/head') %>
-    <title>Signup</title>
+    <title>Signup | <%= appName %></title>
   </head>
   <body>
     <%- include('./partials/nav') %>
 
-    <div class="container mt-4">
+    <main class="container py-4">
+      <section class="form-shell">
+        <p class="eyebrow">Join <%= appName %></p>
+        <h1>Create your account</h1>
       <form action="/user/signup" method="post">
         <div class="mb-3">
           <label for="fullName" class="form-label">Full Name</label>
@@ -17,6 +20,7 @@
             id="fullName"
             name="fullName"
             aria-describedby="fullName"
+              required
           />
         </div>
         <div class="mb-3">
@@ -29,6 +33,7 @@
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+              required
           />
           <div id="emailHelp" class="form-text">
             We'll never share your email with anyone else.
@@ -41,12 +46,14 @@
             type="password"
             class="form-control"
             id="exampleInputPassword1"
+              required
           />
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Create account</button>
       </form>
-    </div>
+      </section>
+    </main>
 
     <%- include('./partials/scripts') %>
   </body>

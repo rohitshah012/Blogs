@@ -1,0 +1,153 @@
+:root {
+  --surface: #ffffff;
+  --surface-muted: #f6f8fb;
+  --text: #182230;
+  --text-muted: #667085;
+  --line: #e4e7ec;
+}
+
+body {
+  background: var(--surface-muted);
+  color: var(--text);
+}
+
+.navbar {
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+}
+
+.page-header,
+.form-shell,
+.article-shell,
+.empty-state,
+.comments-section,
+.author-row {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.page-header {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+
+.page-header h1,
+.form-shell h1,
+.article-shell h1 {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  margin: 0;
+}
+
+.eyebrow {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.blog-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.blog-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.blog-card-image {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.blog-card .card-title {
+  min-height: 3rem;
+}
+
+.form-shell {
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 1.5rem;
+}
+
+.article-shell {
+  padding: 1.5rem;
+}
+
+.article-cover {
+  border-radius: 8px;
+  margin: 1.25rem 0;
+  max-height: 460px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.article-body,
+.comment-item pre {
+  font-family: inherit;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.article-body {
+  color: #344054;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.author-row,
+.comments-section {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.author-row {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.author-row img,
+.comment-item img {
+  border-radius: 50%;
+  height: 48px;
+  object-fit: cover;
+  width: 48px;
+}
+
+.comment-form {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.comment-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.comment-item {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.empty-state {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .page-header,
+  .comment-form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
