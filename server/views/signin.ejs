@@ -7,74 +7,40 @@
   <body>
     <%- include('./partials/nav') %>
 
-    <main class="container py-4 auth-page">
-      <section class="auth-shell">
-        <div class="auth-panel">
-          <p class="eyebrow">Welcome back</p>
-          <h1>Sign in to your account</h1>
-          <p class="auth-copy">
-            Pick up where you left off and keep your stories moving.
-          </p>
-
-          <div class="auth-highlights" aria-label="Account highlights">
-            <div>
-              <span>Read</span>
-              <strong>fresh posts</strong>
-            </div>
-            <div>
-              <span>Write</span>
-              <strong>new blogs</strong>
-            </div>
-            <div>
-              <span>Join</span>
-              <strong>the community</strong>
-            </div>
+    <main class="container py-4">
+      <section class="form-shell">
+        <p class="eyebrow">Welcome back</p>
+        <h1>Signin to your account</h1>
+      <form action="/user/signin" method="post">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+              required
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
           </div>
         </div>
-
-        <div class="auth-card">
-          <div class="auth-card-header">
-            <p class="eyebrow">Account access</p>
-            <h2>Good to see you again</h2>
-          </div>
-
-          <form action="/user/signin" method="post" class="auth-form">
-            <div>
-              <label for="signinEmail" class="form-label">Email address</label>
-              <input
-                type="email"
-                name="email"
-                class="form-control form-control-lg"
-                id="signinEmail"
-                autocomplete="email"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-
-            <div>
-              <label for="signinPassword" class="form-label">Password</label>
-              <input
-                name="password"
-                type="password"
-                class="form-control form-control-lg"
-                id="signinPassword"
-                autocomplete="current-password"
-                placeholder="Enter your password"
-                required
-              />
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-lg w-100">
-              Sign in
-            </button>
-          </form>
-
-          <p class="auth-switch">
-            New here?
-            <a href="/user/signup">Create an account</a>
-          </p>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            name="password"
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+              required
+          />
         </div>
+
+          <button type="submit" class="btn btn-primary">Signin</button>
+      </form>
       </section>
     </main>
 
